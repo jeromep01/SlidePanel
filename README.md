@@ -2,6 +2,8 @@
 
 Javascript plugin to use a sliding panel that you can place wherever you need.
 
+Current version : 1.0.
+
 ## Parameters and Functions
 
 ### place
@@ -172,10 +174,10 @@ The example filled out below is an example and is not intended to be used as it 
             auto_close: true,
             onSlideOpening: function () {
                 // Displays the overlay for UI stuffs.
-                $(".navigation-overlay").removeClass("is-hidden").addClass("is-visible");
+                $(".navigation-overlay").removeClass("is-hiding").addClass("is-showing");
             }, onSlideClosing: function () {
                 // Hides the overlay for UI stuffs.
-                $(".navigation-overlay").removeClass("is-visible").addClass("is-hidden");
+                $(".navigation-overlay").removeClass("is-showing").addClass("is-hiding");
             }
         });
 
@@ -183,4 +185,5 @@ The example filled out below is an example and is not intended to be used as it 
 ```
 
 This example shows how to open a panel that can be slided manually.
-In theory this code is not intended to be called directly, but this way you sew how to map a button to open this panel if you need it.
+
+In theory this code is not intended to be called directly, but this way you see how to map a button to open this panel if you need it.
