@@ -24,11 +24,27 @@ Indicates whether the body content will moved accordingly to the space used by t
 
 Indicates whether you want to disable the scrolling effects when the panel is opened.
 
+### close_selector
+
+*Default value* : Empty.
+
 ### auto_close
 
 *Default value* : false
 
 Indicates whether you want to close automatically the panel if the user clicks in the HTML content.
+
+By default, the element must be an element of type `<a ...></a>`.
+
+To use another element type, please indicate it by setting the close_selector setting.
+
+For example, the code below should be correct :
+
+```html
+<a href="#" class="btn-close-sliding">
+    <img src="close.png" />
+</a>
+```
 
 ### animation_duration
 

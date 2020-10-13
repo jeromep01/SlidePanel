@@ -44,6 +44,7 @@
             body_slide: true,
             no_scroll: false,
             auto_close: false,
+            close_selector: undefined,
             onSlideOpening: function (callback) {
                 if (callback !== undefined) {
                     callback.call(this);
@@ -369,7 +370,9 @@
         };
 
         $toggle.click(handleToggle);
-        if (settings.auto_close) {
+        if (settings.auto_close && settings.close_selector !== undefined) {
+            $sliderpanel.find(settings.close_selector).on('click', function () { deactivate(); });
+        }else if (settings.auto_close) {
             $sliderpanel.find('a').on('click', function () { deactivate(); });
         }
         $exit.on('click', function () { deactivate(); });
