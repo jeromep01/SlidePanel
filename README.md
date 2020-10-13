@@ -6,25 +6,29 @@ Current version : 1.0.
 
 ## Parameters and Functions
 
-### place
+### Parameters
+
+This chapter shows you all parameters that can be applied with this plugin.
+
+#### place
 
 *Default value* : right
 
 Indicates where you want to display the panel. This value can be one of [top|left|right|bottom].
 
-### body_slide
+#### body_slide
 
 *Default value* : true
 
 Indicates whether the body content will moved accordingly to the space used by the panel you open (unless the panel is full sized).
 
-### no_scroll
+#### no_scroll
 
 *Default value* : false
 
 Indicates whether you want to disable the scrolling effects when the panel is opened.
 
-### close_selector
+#### close_selector
 
 *Default value* : Empty.
 
@@ -32,7 +36,7 @@ Set the type of the HTML element that gets the role of the close action. You can
 
 This value change the default comportment of the `<a></a>` element.
 
-### auto_close
+#### auto_close
 
 *Default value* : false
 
@@ -50,43 +54,47 @@ For example, the code below should be correct :
 </a>
 ```
 
-### animation_duration
+#### animation_duration
 
 *Default value* : 0.5s
 
 Defines the duration of the animation. You can change the unit ('s') to a time unit valid.
 
-### animation_curve
+#### animation_curve
 
 *Default value* : cubic-bezier(0.54, 0.01, 0.57, 1.03)
 
 Defines the animation as a mathematic operation. Change this to whatever you need.
 
-### toggle
+#### toggle
 
 *Default value* : '#sliderpanel-toggle'
 
 Sets the id or class of the element that is used to open the panel by sliding.
 
-### exit_selector
+#### exit_selector
 
 *Default value* : '.slider-exit'
 
 Sets the id or class of the element that is used to close the panel if the auto close is not activated.
 
-### onSlideOpening
+### Functions
+
+This chapter shows you the list of all functions and events that can be used to make the plugin more efficient.
+
+#### onSlideOpening
 
 This is a callback that you can use to make some additional operations while the panel is being displayed.
 
-### onSlideClosing
+#### onSlideClosing
 
 This is a callback that you can use to make some additional operations while the panel is being hidden.
 
-### onSlideOpened
+#### onSlideOpened
 
 This is a callback that you can use to make some additional operations while the panel is displayed.
 
-### onSlideClosed
+#### onSlideClosed
 
 This is a callback that you can use to make some additional operations while the panel is hidden.
 
