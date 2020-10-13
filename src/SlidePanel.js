@@ -5,6 +5,8 @@
  * Follow me at : 
  * 
  * No guarantee is applicable with this plugin, you use it at your own risks.
+ *
+ * Current version : 1.0
  * 
  * Auteur : Jérôme Perciot (jperciot01@gmail.com)
  * Apache 2.0 Licence
@@ -34,7 +36,7 @@
     })();
 
     $.fn.SlidePanel = function (options) {
-
+        
         var settings = $.extend({
             toggle: "#sliderpanel-toggle",
             exit_selector: ".slider-exit",
@@ -291,22 +293,6 @@
                 if ((ie !== false) && (ie <= 11)) {
                     $sliderpanel.css(prefixCSS(Prop[settings.place].activateAnimation));
                 }
-
-                //dealing with the browser bug of inability to transform fixed elements
-
-                var windowHeight = $(window).height();
-                var scrollTop = $(window).scrollTop();
-                var sliderpanelHeight = $sliderpanel.height();
-                var sliderpanelOffsetTop = $sliderpanel.offset().top;
-
-                // if((sliderpanelOffsetTop !== scrollTop) && settings.place !== "bottom" && !(ie && ie <= 11 && settings.place ==="top"))
-                //   {
-                //     $sliderpanel.css('top', scrollTop);
-                //   }
-                // if(((sliderpanelOffsetTop !== scrollTop + windowHeight) && (settings.place === "bottom")))
-                //   {
-                //   $sliderpanel.css('top', scrollTop + windowHeight - sliderpanelHeight).css('bottom','');
-                //   }
             }
 
             else {
@@ -372,7 +358,7 @@
         $toggle.click(handleToggle);
         if (settings.auto_close && settings.close_selector !== undefined) {
             $sliderpanel.find(settings.close_selector).on('click', function () { deactivate(); });
-        }else if (settings.auto_close) {
+        } else if (settings.auto_close) {
             $sliderpanel.find('a').on('click', function () { deactivate(); });
         }
         $exit.on('click', function () { deactivate(); });
