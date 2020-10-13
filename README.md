@@ -28,6 +28,10 @@ Indicates whether you want to disable the scrolling effects when the panel is op
 
 *Default value* : Empty.
 
+Set the type of the HTML element that gets the role of the close action. You can use a button type for example.
+
+This value change the default comportment of the `<a></a>` element.
+
 ### auto_close
 
 *Default value* : false
