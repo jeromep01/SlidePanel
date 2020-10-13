@@ -2,6 +2,8 @@
 
 Javascript plugin to use a sliding panel that you can place wherever you need.
 
+This plugin was written in JavaScript ans uses jQuery 3.4.1 version. It has been tested only with this version, but it should be working with lower and greater versions.
+
 Current version : 1.0.
 
 ## Parameters and Functions
