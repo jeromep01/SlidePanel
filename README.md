@@ -91,5 +91,88 @@ This example shows you how to create your HTML element. This element is the pane
 
 The example filled out below is an example and is not intended to be used as it in your code.
 
+```css
+/* ================================== NAVIGATION ================================== */
+.navigation-slide {
+    width: 400px;
+    background-color: #fff;
+    overflow: hidden !important;
+    z-index: 150000;
+    box-shadow: 8px 0 8px -10px #000000,-8px 0 8px -10px #000000;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1999999999;
+    text-align: left;
+    background: #fff;
+    pointer-events: auto;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+}
+
+    .navigation-slide .ns-header {
+        padding: 0 2rem .75rem;
+        display: flex;
+        align-items: center;
+    }
+
+        .navigation-slide .ns-header .ns-header-title {
+            font-size: .875rem;
+            line-height: 1.2857143;
+            color: #6f676c;
+            width: 100%;
+        }
+
+    .navigation-slide .ns-header .ns-exit {
+        border: none;
+        background: none;
+    }
+
+.navigation-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+    background-color: rgba(34,32,32,.7);
+    z-index: 298;
+    cursor: pointer;
+}
+
+    .is-visible {
+        visibility: visible;
+    }
+
+    .is-hidden {
+        display: none;
+    }
+```
+
 ### JavaScript
 
+```javascript
+        var menu = $('.navigation-slide').SlidePanel({
+            place: 'right',
+            exit_selector: '.ns-exit',
+            toggle: '#ns-product-toggle',
+            no_scroll: true,
+            body_slide: false,
+            auto_close: true,
+            onSlideOpening: function () {
+                // Displays the overlay for UI stuffs.
+                $(".navigation-overlay").removeClass("is-hidden").addClass("is-visible");
+            }, onSlideClosing: function () {
+                // Hides the overlay for UI stuffs.
+                $(".navigation-overlay").removeClass("is-visible").addClass("is-hidden");
+            }
+        });
+
+        menu.activate();
+```
+
+This example shows how to open a panel that can be slided manually.
+In theory this code is not intended to be called directly, but this way you sew how to map a button to open this panel if you need it.
