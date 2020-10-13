@@ -52,6 +52,14 @@ Sets the id or class of the element that is used to open the panel by sliding.
 
 Sets the id or class of the element that is used to close the panel if the auto close is not activated.
 
+### onSlideOpening
+
+This is a callback that you can use to make some additional operations while the panel is being displayed.
+
+### onSlideClosing
+
+This is a callback that you can use to make some additional operations while the panel is being hidden.
+
 ## **How to use it ?**
 
 First of all, you must place a HTML element in the root layout inside of the body element.
