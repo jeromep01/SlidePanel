@@ -85,6 +85,12 @@ Sets the id or class of the element that is used to open the panel by sliding.
 
 Sets the text to display as the title of the panel. You can ignore this parameter if your panel does not manage any title.
 
+#### content_selector
+
+*Default value* : Empty.
+
+Sets the content to display as the main HTML content of the panel. If your panel is constructed dynamically, this is a good option for you.
+
 #### exit_selector
 
 *Default value* : '.slider-exit'
@@ -131,6 +137,16 @@ This function takes one parameter containing the text to display.
 
 ```javascript
 sliderPanel.setTitle("Product ref. P000001/001");
+```
+
+#### setContent
+
+This function sets the content using the content used in the parameter of the function.
+
+This function takes one parameter containing the text to display.
+
+```javascript
+sliderPanel.setTitle("<div id='node'><span>CONTENT</span></div>");
 ```
 
 ## **How to use it ?**
