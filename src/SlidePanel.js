@@ -46,6 +46,7 @@
             body_slide: true,
             no_scroll: false,
             auto_close: false,
+            title_selector: '',
             close_selector: undefined,
             onSlideOpening: function (callback) {
                 if (callback !== undefined) {
@@ -318,6 +319,12 @@
             prepare();
         };
 
+        function setTitle(title) {
+            if(settings.title_selector !== undefined && settings.title_selector !=='') {
+                $sliderpanel.find(settings.title_selector).html(title);
+            }
+        }
+
         function deactivate() {
             if (settings.onSlideClosing !== undefined) {
                 settings.onSlideClosing();
@@ -377,7 +384,8 @@
                 deactivate();
             },
             deactivate: function () { deactivate(); },
-            activate: function () { activate(); }
+            activate: function () { activate(); },
+            setTitle: function (title) { setTitle (title); }
         };
 
         return menu;

@@ -14,7 +14,12 @@ This chapter shows you all parameters that can be applied with this plugin.
 
 *Default value* : right
 
-Indicates where you want to display the panel. This value can be one of [top|left|right|bottom].
+Indicates where you want to display the panel. This value can be one of these values :
+
+* *top*
+* *left*
+* *bottom*
+* *right*
 
 #### body_slide
 
@@ -72,6 +77,12 @@ Defines the animation as a mathematic operation. Change this to whatever you nee
 
 Sets the id or class of the element that is used to open the panel by sliding.
 
+#### title_selector
+
+*Default value* : Empty.
+
+Sets the text to display as the title of the panel. You can ignore this parameter if your panel does not manage any title.
+
 #### exit_selector
 
 *Default value* : '.slider-exit'
@@ -97,6 +108,28 @@ This is a callback that you can use to make some additional operations while the
 #### onSlideClosed
 
 This is a callback that you can use to make some additional operations while the panel is hidden.
+
+#### reset
+
+This function resets the panel automatically to its defaults.
+
+#### activate
+
+This function displays the panel automatically by using the settings previously set.
+
+#### deactivate
+
+This function hides the panel automatically by using the settings previously set.
+
+#### setTitle
+
+This function sets the title using the content used in the parameter of the function.
+
+This function takes one parameter containing the text to display.
+
+```javascript
+sliderPanel.setTitle("Product ref. P000001/001");
+```
 
 ## **How to use it ?**
 
