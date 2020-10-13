@@ -49,7 +49,17 @@
                     callback.call(this);
                 }
             },
+            onSlideOpened: function (callback) {
+                if (callback !== undefined) {
+                    callback.call(this);
+                }
+            },
             onSlideClosing: function (callback) {
+                if (callback !== undefined) {
+                    callback.call(this);
+                }
+            },
+            onSlideClosed: function (callback) {
                 if (callback !== undefined) {
                     callback.call(this);
                 }
@@ -266,9 +276,12 @@
         };
 
         var activate = function () {
+            if (settings.onSlideOpening !== undefined) {
+                settings.onSlideOpening();
+            }
+
             sizeFunction(); //sets the size of the slider menu and the distance the body will travel on sliding
             $sliderpanel.css('visibility', 'visible');
-            console.log(settings);
             if (settings.body_slide) {
                 $body.css(prefixCSS(bodySlidePrepare));
                 $('html').css(htmlProp);
@@ -299,15 +312,15 @@
                 $sliderpanel.css(prefixCSS(Prop[settings.place].activateAnimation));
             }
 
-            if (settings.onSlideOpening !== undefined) {
-                settings.onSlideOpening();
-            }
-
             if (settings.no_scroll) {
                 disable_scroll();
             }
 
             clicked = true;
+
+            if (settings.onSlideOpened !== undefined) {
+                settings.onSlideOpened();
+            }
         };
 
         var hideSlider = function (e) {
@@ -319,6 +332,9 @@
         };
 
         function deactivate() {
+            if (settings.onSlideClosing !== undefined) {
+                settings.onSlideClosing();
+            }
 
             $body.one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', hideSlider);
 
@@ -335,11 +351,11 @@
                 enable_scroll();
             }
 
-            if (settings.onSlideClosing !== undefined) {
-                settings.onSlideClosing();
-            }
-
             clicked = false;
+
+            if (settings.onSlideClosed !== undefined) {
+                settings.onSlideClosed();
+            }
         }
 
         sizeFunction();

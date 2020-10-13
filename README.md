@@ -60,6 +60,14 @@ This is a callback that you can use to make some additional operations while the
 
 This is a callback that you can use to make some additional operations while the panel is being hidden.
 
+### onSlideOpened
+
+This is a callback that you can use to make some additional operations while the panel is displayed.
+
+### onSlideClosed
+
+This is a callback that you can use to make some additional operations while the panel is hidden.
+
 ## **How to use it ?**
 
 First of all, you must place a HTML element in the root layout inside of the body element.
