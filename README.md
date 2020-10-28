@@ -103,19 +103,19 @@ This chapter shows you the list of all functions and events that can be used to 
 
 #### onSlideOpening
 
-This is a callback that you can use to make some additional operations while the panel is being displayed.
+This is a callback that you can use to make some additional operations while the panel is being displayed. A parameter has been added in the callback as a reference to the HTML element who called the slide panel.
 
 #### onSlideClosing
 
-This is a callback that you can use to make some additional operations while the panel is being hidden.
+This is a callback that you can use to make some additional operations while the panel is being hidden. A parameter has been added in the callback as a reference to the HTML element who called the slide panel.
 
 #### onSlideOpened
 
-This is a callback that you can use to make some additional operations while the panel is displayed.
+This is a callback that you can use to make some additional operations while the panel is displayed. A parameter has been added in the callback as a reference to the HTML element who called the slide panel.
 
 #### onSlideClosed
 
-This is a callback that you can use to make some additional operations while the panel is hidden.
+This is a callback that you can use to make some additional operations while the panel is hidden. A parameter has been added in the callback as a reference to the HTML element who called the slide panel.
 
 #### reset
 

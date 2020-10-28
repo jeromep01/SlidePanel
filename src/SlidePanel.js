@@ -6,7 +6,9 @@
  * 
  * No guarantee is applicable with this plugin, you use it at your own risks.
  *
- * Current version : 1.0
+ * Current version : 1.1
+ * 
+ * 1.1 : Adding reference to the HTML being called by the toggle element. With this reference you can perform more actions when this is required.
  * 
  * Auteur : Jérôme Perciot (jperciot01@gmail.com)
  * Apache 2.0 Licence
@@ -36,7 +38,7 @@
     })();
 
     $.fn.SlidePanel = function (options) {
-        
+
         var settings = $.extend({
             toggle: "#sliderpanel-toggle",
             exit_selector: ".slider-exit",
@@ -51,7 +53,7 @@
             content_selector: undefined,
             onSlideOpening: function (callback) {
                 if (callback !== undefined) {
-                    callback.call(this);
+                    callback.call(this,);
                 }
             },
             onSlideOpened: function (callback) {
@@ -280,9 +282,10 @@
             return (w1 - w2);
         };
 
-        var activate = function () {
+        // v1.1 => element is the HTML element that is attached as the related parent which has raised this event !
+        var activate = function (element) {
             if (settings.onSlideOpening !== undefined) {
-                settings.onSlideOpening();
+                settings.onSlideOpening(element);
             }
 
             sizeFunction(); //sets the size of the slider menu and the distance the body will travel on sliding
@@ -308,7 +311,7 @@
             clicked = true;
 
             if (settings.onSlideOpened !== undefined) {
-                settings.onSlideOpened();
+                settings.onSlideOpened(element);
             }
         };
 
@@ -321,20 +324,21 @@
         };
 
         function setTitle(title) {
-            if(settings.title_selector !== undefined && settings.title_selector !=='') {
+            if (settings.title_selector !== undefined && settings.title_selector !== '') {
                 $sliderpanel.find(settings.title_selector).html(title);
             }
         }
 
         function setContent(content) {
-            if(settings.content_selector !== undefined && settings.content_selector !=='') {
+            if (settings.content_selector !== undefined && settings.content_selector !== '') {
                 $sliderpanel.find(settings.content_selector).html(content);
             }
         }
 
-        function deactivate() {
+        // v1.1 => element is the HTML element that is attached as the related parent which has raised this event !
+        function deactivate(element) {
             if (settings.onSlideClosing !== undefined) {
-                settings.onSlideClosing();
+                settings.onSlideClosing(element);
             }
 
             $body.one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', hideSlider);
@@ -355,7 +359,7 @@
             clicked = false;
 
             if (settings.onSlideClosed !== undefined) {
-                settings.onSlideClosed();
+                settings.onSlideClosed(element);
             }
         }
 
@@ -364,9 +368,10 @@
         $(window).resize(sizeFunction);
         $sliderpanel.resize(sizeFunction);
 
-        var handleToggle = function () {
-            if (!clicked) { activate(); }
-            else { deactivate(); }
+        // v1.1 => element is the HTML element that is attached as the related parent which has raised this event !
+        var handleToggle = function (element) {
+            if (!clicked) { activate(element); }
+            else { deactivate(element); }
         };
 
         $toggle.click(handleToggle);
@@ -392,8 +397,8 @@
             },
             deactivate: function () { deactivate(); },
             activate: function () { activate(); },
-            setTitle: function (title) { setTitle (title); },
-            setContent: function (content) { setContent (content); }
+            setTitle: function (title) { setTitle(title); },
+            setContent: function (content) { setContent(content); }
         };
 
         return menu;
