@@ -53,7 +53,7 @@
             content_selector: undefined,
             onSlideOpening: function (callback) {
                 if (callback !== undefined) {
-                    callback.call(this,);
+                    callback.call(this);
                 }
             },
             onSlideOpened: function (callback) {
@@ -311,7 +311,7 @@
             clicked = true;
 
             if (settings.onSlideOpened !== undefined) {
-                settings.onSlideOpened(element);
+                settings.onSlideOpened();
             }
         };
 
@@ -359,7 +359,7 @@
             clicked = false;
 
             if (settings.onSlideClosed !== undefined) {
-                settings.onSlideClosed(element);
+                settings.onSlideClosed();
             }
         }
 
